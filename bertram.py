@@ -46,7 +46,8 @@ for ld, lt in user_logins.iteritems():
 	if ld in user_logouts:
 		time_spent[ld] = user_logouts[ld] - user_logins[ld]
 
-for ld, ts in time_spent.iteritems():
+for ld in sorted(time_spent.keys()):
+	ts = time_spent[ld]
 	total_seconds = (ts.microseconds + (ts.seconds + ts.days * 24 * 3600) * 10**6) / 10**6
 	hours = total_seconds // (60*60)
 	minutes = (total_seconds % (60*60)) / 60
